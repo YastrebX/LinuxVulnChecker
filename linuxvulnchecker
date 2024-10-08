@@ -3,15 +3,15 @@ import subprocess
 from datetime import datetime
 
 # Log file setup
-LOG_FILE = f"server_vulnerability_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
+LOG_FILE = f"sv_report_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 
 def log_message(message):
-    """Append a message to the log file."""
+    # Append a message to the log file.
     with open(LOG_FILE, "a") as f:
         f.write(message + "\n")
 
 def run_command(command):
-    """Run a system command and return the output."""
+    # Run a system command and return the output.
     try:
         output = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
         return output.decode().strip()
@@ -21,7 +21,7 @@ def run_command(command):
 
 # 1. Check File Permissions
 def check_file_permissions():
-    log_message("\n--- File Permissions Check ---")
+    log_message("\n----- File Permissions Check -----")
     
     # Checking for world-writable files
     log_message("\nWorld-writable files:")
@@ -39,7 +39,7 @@ def check_file_permissions():
 
 # 2. Check User & Group Configurations
 def check_user_group_configurations():
-    log_message("\n--- User & Group Configurations ---")
+    log_message("\n----- User & Group Configurations -----")
     
     # Check for users with UID 0 (root privileges)
     log_message("\nUsers with UID 0 (root privileges):")
@@ -53,7 +53,7 @@ def check_user_group_configurations():
 
 # 3. Check Running Services & Network Configuration
 def check_services_network():
-    log_message("\n--- Running Services & Network Configuration ---")
+    log_message("\n----- Running Services & Network Configuration -----")
     
     # List services running as root
     log_message("\nServices running as root:")
@@ -67,7 +67,7 @@ def check_services_network():
 
 # 4. Check Firewall Rules
 def check_firewall():
-    log_message("\n--- Firewall Rules ---")
+    log_message("\n----- Firewall Rules -----")
     
     # Check if UFW (Uncomplicated Firewall) is active
     log_message("\nUFW status:")
@@ -76,7 +76,7 @@ def check_firewall():
 
 # 5. Check Outdated/Vulnerable Packages
 def check_packages():
-    log_message("\n--- Package Security Check ---")
+    log_message("\n----- Package Security Check -----")
     
     # Check for available updates
     log_message("\nAvailable package updates:")
@@ -94,7 +94,7 @@ def check_logs():
 
 # 7. Find SUID/SGID Files
 def check_suid_sgid():
-    log_message("\n--- SUID/SGID Files ---")
+    log_message("\n----- SUID/SGID Files -----")
     
     # Find files with the SUID/SGID bit set
     log_message("\nFiles with SUID/SGID bit set:")
@@ -103,7 +103,7 @@ def check_suid_sgid():
 
 # 8. Check Kernel and System Security Settings
 def check_kernel_security():
-    log_message("\n--- Kernel & System Security ---")
+    log_message("\n----- Kernel & System Security -----")
     
     # Check sysctl settings for common hardening
     log_message("\nSysctl settings related to security:")
@@ -123,7 +123,7 @@ def main():
     check_suid_sgid()
     check_kernel_security()
     
-    log_message("\nVulnerability check complete. Report saved to: " + LOG_FILE)
+    log_message("\n Vulnerability checking is complete. Report saved to: " + LOG_FILE)
 
 if __name__ == "__main__":
     main()
