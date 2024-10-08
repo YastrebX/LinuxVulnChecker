@@ -19,6 +19,10 @@ def run_command(command):
         log_message(f"Error running command {command}: {e.output.decode().strip()}")
         return None
 
+def check_sudo():
+    # Check if the script is being running with sudo.
+    return os.geteuid() == 0
+
 # 1. Check File Permissions
 def check_file_permissions():
     log_message("\n----- File Permissions Check -----")
@@ -114,6 +118,9 @@ def main():
     log_message("Linux Server Vulnerability Report")
     log_message(f"Report generated on {datetime.now()}\n")
     
+    if not check_sudo():
+        log_message("Warning: This script is not running as root. Some checks may be incompletedue to insufficient permissions.\n")
+        
     check_file_permissions()
     check_user_group_configurations()
     check_services_network()
