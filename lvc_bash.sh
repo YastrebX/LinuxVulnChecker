@@ -20,7 +20,7 @@ echo
 
 # 2. Check for world-writable files (except for /proc)
 echo "2. Checking for world-writable files..."
-find / -xdev -type f -perm -0002 2>/dev/null
+find / -xdev -type f -perm -0002 -exec ls -l {} \; 2> /dev/null
 echo "World-writable files check completed."
 echo
 
@@ -42,7 +42,7 @@ echo
 
 # 5. Check for unnecessary SUID/SGID files
 echo "5. Checking for unnecessary SUID/SGID files..."
-find / -perm /6000 -type f 2>/dev/null
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
 echo "SUID/SGID files check completed."
 echo
 
