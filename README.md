@@ -69,7 +69,7 @@ You can modify or extend the script to suit your specific needs. For example, yo
 
 ## License
 
-This project is licensed under the GPT3 License
+This project is licensed under the GPL-3.0 License
 
 ## Contributing
 
