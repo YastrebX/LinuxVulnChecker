@@ -1,0 +1,27 @@
+# Flask and Web Dependencies
+Flask                    # Main web framework
+Werkzeug                 # WSGI request and response handling
+Jinja2                   # Templating engine
+itsdangerous             # Secure cookie handling
+MarkupSafe               # Safely rendering HTML
+gunicorn                 # Production WSGI server
+
+# Core Python Libraries for Security Checks
+concurrent-log-handler   # Thread-safe logging for concurrent processes
+pytz                     # Timezone handling for logs
+psutil                   # System monitoring (processes, CPU, memory)
+netifaces                # Network interface inspection
+scapy                    # Network packet analysis for ports
+dnspython                # DNS library for potential checks
+
+# Environment Variables Management
+python-dotenv            # For managing environment variables via .env file
+
+# Optional for Improved Security
+bcrypt                   # Secure password hashing for authentication
+cryptography             # For encryption-related tasks
+
+# Testing and Debugging
+pytest                   # Testing framework
+pytest-flask             # Flask-specific testing extensions
+flask

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="text-center">Security Audit Report</h1>
+<p class="text-center">Summary of system security findings.</p>
+
+<div class="card mt-4">
+    <div class="card-body">
+        {% if report %}
+            <pre>{{ report }}</pre>
+        {% else %}
+            <p>No data available. Run some checks to generate a report.</p>
+        {% endif %}
+    </div>
+</div>
+
+<a href="/" class="btn btn-primary mt-4">Back to Dashboard</a>
+{% endblock %}

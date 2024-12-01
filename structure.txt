@@ -1,0 +1,26 @@
+security-auditor/
+│
+├── app.py              # Main Flask application
+├── templates/          # HTML templates
+│   ├── base.html
+│   ├── index.html
+│   ├── results.html
+│   └── report.html
+├── static/             # CSS, JavaScript, and images
+│   ├── css/
+│   └── js/
+├── core/               # Core modules for system checks
+│   ├── ports.py
+│   ├── permissions.py
+│   ├── packages.py
+│   ├── users.py
+│   ├── processes.py
+│   ├── services.py
+│   ├── firewall.py
+│   ├── logs.py
+│   ├── kernel.py
+│   └── security_config.py
+├── utils/              # Helper modules
+│   ├── config.py
+│   └── helpers.py
+└── requirements.txt    # Dependencies
