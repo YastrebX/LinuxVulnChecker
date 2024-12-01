@@ -125,23 +125,23 @@ A Python-based web application for auditing the security of Linux systems. This 
 
 1. **Run All Security Checks**:
    ```bash
-   curl -X POST http://127.0.0.1:5000/run_all_checks
+   curl -X POST http://127.0.0.1:36261/run_all_checks
    ```
 
 2. **Run Specific Security Checks**:
    ```bash
-   curl -X POST http://127.0.0.1:5000/run_selected_checks \
+   curl -X POST http://127.0.0.1:36261/run_selected_checks \
         -H "Content-Type: application/json" \
         -d '{"checks": ["open_ports", "file_permissions"]}'
    ```
 
 3. **Clear Results**:
    ```bash
-   curl -X POST http://127.0.0.1:5000/clear_results
+   curl -X POST http://127.0.0.1:36261/clear_results
    ```
 
 4. **Access Full Report**:
-   Navigate to `http://127.0.0.1:5000/report`.
+   Navigate to `http://127.0.0.1:36261/report`.
 
 ---
 
